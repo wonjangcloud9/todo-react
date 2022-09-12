@@ -7,8 +7,8 @@ import cn from 'classnames';
 
 import './TodoListItem.scss';
 
-const TodoListItem = ({ todo }) => {
-  const { text, checked } = todo;
+const TodoListItem = ({ todo, onRemove }) => {
+  const { id, text, checked } = todo;
 
   return (
     <div className="TodoListItem">
@@ -17,7 +17,11 @@ const TodoListItem = ({ todo }) => {
         <div className="text">{text}</div>
       </div>
       <div className="remove">
-        <MdRemoveCircleOutline />
+        <MdRemoveCircleOutline
+          onClick={() => {
+            onRemove(id);
+          }}
+        />
       </div>
     </div>
   );
